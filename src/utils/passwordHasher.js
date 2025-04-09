@@ -1,13 +1,13 @@
-const bycrypt = require("bcryptjs");
+const bcrypt = require("bcryptjs");
 
 const SALT_ROUNDS = 10;
 
 function hashPassword(password) {
-    return bycrypt.hashSync(password, SALT_ROUNDS);
+    return bcrypt.hashSync(password, SALT_ROUNDS);
 }
 
 function verifyPasswordHash(password, hashPassword) {
-    return bycrypt.compareSync(password, hashPassword);
+    return bcrypt.compareSync(password, hashPassword);
 }
 
 module.exports = {

@@ -13,7 +13,7 @@ const userSchema = new mongoose.Schema({
     password: { type: String, required: [true, "password is required"] },
     address: { type: String, required: [true, "address is required"] },
     phone: { type: String, required: [true, "phone number is required"] },
-    userType: { type: String, required: [true, "user type is required"], default: "client", enum: ["client", "admin", "vendor", "driver"] },
+    userType: { type: String, required: [true, "user type is required"], enum: ["client", "admin", "vendor", "driver"] },
 }, { timestamps: true });
 
 // models

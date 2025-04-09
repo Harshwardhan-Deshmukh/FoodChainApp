@@ -9,6 +9,12 @@ const registrationZodSchema = zod.object({
     userType: zod.string().refine(value => ["client", "admin", "vendor", "driver"].includes(value), { message: "Invalid User Type" })
 });
 
+const loginZodSchema = zod.object({
+    email: zod.string().email(),
+    password: zod.string().min(5),
+});
+
 module.exports = {
-    registrationZodSchema
+    registrationZodSchema,
+    loginZodSchema
 }
