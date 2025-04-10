@@ -14,7 +14,16 @@ const loginZodSchema = zod.object({
     password: zod.string().min(5),
 });
 
+const updateUserDataZodSchema = zod.object({
+    username: zod.string().optional(),
+    password: zod.string().min(5).optional(),
+    phone: zod.string().length(10).optional(),
+    address: zod.string().optional(),
+    userType: zod.string().refine(value => ["client", "admin", "vendor", "driver"].includes(value), { message: "Invalid User Type" }).optional()
+});
+
 module.exports = {
     registrationZodSchema,
-    loginZodSchema
+    loginZodSchema,
+    updateUserDataZodSchema
 }
