@@ -1,8 +1,9 @@
 const { Router } = require("express");
 const { User } = require("../models/db");
-const { registrationInputValidation, loginInputValidation, doesUserExistsLogin, doesUserExistsRegistration } = require("../middlewares/authMiddleware");
+const { doesUserExistsLogin, doesUserExistsRegistration } = require("../middlewares/authMiddleware");
 const { hashPassword } = require("../utils/passwordHasher");
 const { SERVER_TIMESTAMP } = require("../config/configs");
+const { registrationInputValidation, loginInputValidation } = require("../middlewares/inputValidationMiddleware");
 const router = Router();
 
 router.post("/register", registrationInputValidation, doesUserExistsRegistration, async (req, res) => {
