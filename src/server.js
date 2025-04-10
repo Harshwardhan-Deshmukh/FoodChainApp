@@ -24,7 +24,7 @@ app.use((req, res, next) => {
         status: "INVALID_ROUTE",
         message: null,
         error: `Endpoint not found: ${req.path}`,
-        timestamp: SERVER_TIMESTAMP.toISOString(),
+        timestamp: SERVER_TIMESTAMP,
     });
 });
 
@@ -33,7 +33,7 @@ app.use((err, req, res, next) => {
         status: "ERROR",
         message: null,
         error: err.message,
-        timestamp: SERVER_TIMESTAMP.toISOString()
+        timestamp: SERVER_TIMESTAMP
     })
 })
 

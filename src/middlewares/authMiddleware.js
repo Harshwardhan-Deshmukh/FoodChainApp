@@ -16,7 +16,7 @@ function registrationInputValidation(req, res, next) {
             status: "INPUT_VALIDATION_FAILED",
             message: null,
             error: response.error.errors,
-            timestamp: SERVER_TIMESTAMP.toISOString(),
+            timestamp: SERVER_TIMESTAMP,
         });
     }
 }
@@ -33,7 +33,7 @@ function loginInputValidation(req, res, next) {
             status: "INPUT_VALIDATION_FAILED",
             message: null,
             error: response.error.errors,
-            timestamp: SERVER_TIMESTAMP.toISOString(),
+            timestamp: SERVER_TIMESTAMP,
         });
     }
 }
@@ -48,7 +48,7 @@ async function doesUserExistsRegistration(req, res, next) {
             status: "USER_ALREADY_EXISTS",
             message: null,
             error: `Please login using you registered email address`,
-            timestamp: SERVER_TIMESTAMP.toISOString(),
+            timestamp: SERVER_TIMESTAMP,
         });
     } else {
         // continue with registration process
@@ -80,7 +80,7 @@ async function doesUserExistsLogin(req, res, next) {
             status: "USER_NOT_FOUND",
             message: null,
             error: `Please Register using a valid email address`,
-            timestamp: SERVER_TIMESTAMP.toISOString(),
+            timestamp: SERVER_TIMESTAMP,
         });
     }
 }

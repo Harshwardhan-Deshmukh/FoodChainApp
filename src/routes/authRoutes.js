@@ -13,7 +13,7 @@ router.post("/register", registrationInputValidation, doesUserExistsRegistration
         status: "SUCCESS",
         message: "User Created Successfully",
         error: null,
-        timestamp: SERVER_TIMESTAMP.toISOString(),
+        timestamp: SERVER_TIMESTAMP,
     });
 })
 
@@ -26,14 +26,14 @@ router.post("/login", loginInputValidation, doesUserExistsLogin, async (req, res
                 token
             },
             error: null,
-            timestamp: SERVER_TIMESTAMP.toISOString()
+            timestamp: SERVER_TIMESTAMP
         })
     } else {
         res.status(401).json({
             status: "UNAUTHORIZED",
             message: null,
             error: "Invalid Password",
-            timestamp: SERVER_TIMESTAMP.toISOString()
+            timestamp: SERVER_TIMESTAMP
         });
     }
 })
