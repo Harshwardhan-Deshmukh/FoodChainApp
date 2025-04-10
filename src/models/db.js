@@ -16,10 +16,32 @@ const userSchema = new mongoose.Schema({
     userType: { type: String, required: [true, "user type is required"], enum: ["client", "admin", "vendor", "driver"] },
 }, { timestamps: true });
 
+// restaurant
+const restaurantSchema = new mongoose.Schema({
+    title: { type: String, required: [true, "restaurant title is required"] },
+    imageUrl: { type: String, default: "https://picsum.photos/200/300" },
+    foods: { type: Array },
+    pickup: { type: Boolean, default: true },
+    delivery: { type: Boolean, default: true },
+    isOpen: { type: Boolean, default: true },
+    rating: { type: Number, default: 1, min: 1, max: 5 },
+    ratingCount: { type: String },
+    code: { type: String },
+    coords: {
+        id: { type: String },
+        latitude: { type: Number },
+        longitude: { type: Number },
+        address: { type: String },
+        title: { type: String }
+    }
+}, { timestamps: true });
+
+
 // models
-// user
 const User = mongoose.model("user", userSchema);
+const Restaurant = mongoose.model("restaurant", restaurantSchema);
 
 module.exports = {
-    User
+    User,
+    Restaurant
 }
