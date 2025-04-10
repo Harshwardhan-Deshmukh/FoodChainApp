@@ -6,8 +6,8 @@ const bodyParser = require("body-parser");
 const morgan = require("morgan");
 const healthRoute = require("./routes/healthRoutes");
 const authRouter = require("./routes/authRoutes");
-const { verifyPasswordHash } = require("./utils/passwordHasher");
 const userRouter = require("./routes/userRoute");
+const restaurantRouter = require("./routes/restaurantRoute");
 
 // middlewares
 app.use(cors({}));
@@ -18,6 +18,7 @@ app.use(morgan("dev"));
 app.use("/api/v1/health", healthRoute);
 app.use("/api/v1/auth", authRouter);
 app.use("/api/v1/user", userRouter);
+app.use("/api/v1/restaurant", restaurantRouter);
 
 // global catches
 // Catch-all middleware for unmatched routes

@@ -1,0 +1,117 @@
+[
+    {
+        "title": "Mama Mia Pizzeria",
+        "imageUrl": "https://images.unsplash.com/photo-1600891964599-f61ba0e24092",
+        "foods": [
+            "Margherita Pizza",
+            "Pepperoni Pizza",
+            "Garlic Bread",
+            "Tiramisu"
+        ],
+        "pickup": true,
+        "delivery": true,
+        "isOpen": true,
+        "rating": 4.5,
+        "ratingCount": "256",
+        "code": "MMP001",
+        "coords": {
+            "id": "loc123",
+            "latitude": 40.712776,
+            "longitude": -74.005974,
+            "address": "123 Main St, New York, NY 10001",
+            "title": "Mama Mia Downtown"
+        }
+    },
+    {
+        "title": "Dragon Wok Express",
+        "imageUrl": "https://images.unsplash.com/photo-1553621042-f6e147245754",
+        "foods": [
+            "Kung Pao Chicken",
+            "Fried Rice",
+            "Spring Rolls",
+            "Dumplings"
+        ],
+        "pickup": true,
+        "delivery": false,
+        "isOpen": true,
+        "rating": 4.2,
+        "ratingCount": "198",
+        "code": "DWE002",
+        "coords": {
+            "id": "loc456",
+            "latitude": 34.052235,
+            "longitude": -118.243683,
+            "address": "456 Sunset Blvd, Los Angeles, CA 90028",
+            "title": "Dragon Wok LA"
+        }
+    },
+    {
+        "title": "Green Leaf Deli",
+        "imageUrl": "https://images.unsplash.com/photo-1504674900247-0877df9cc836",
+        "foods": [
+            "Vegan Wrap",
+            "Quinoa Bowl",
+            "Avocado Toast",
+            "Kale Smoothie"
+        ],
+        "pickup": true,
+        "delivery": true,
+        "isOpen": false,
+        "rating": 4.8,
+        "ratingCount": "87",
+        "code": "GLD003",
+        "coords": {
+            "id": "loc789",
+            "latitude": 37.774929,
+            "longitude": -122.419418,
+            "address": "789 Market St, San Francisco, CA 94103",
+            "title": "Green Leaf SF"
+        }
+    },
+    {
+        "title": "Curry House",
+        "imageUrl": "https://images.unsplash.com/photo-1605477077550-3a4e65d47bd5",
+        "foods": [
+            "Butter Chicken",
+            "Naan",
+            "Biryani",
+            "Samosa"
+        ],
+        "pickup": false,
+        "delivery": true,
+        "isOpen": true,
+        "rating": 4.6,
+        "ratingCount": "341",
+        "code": "CH004",
+        "coords": {
+            "id": "loc321",
+            "latitude": 51.507351,
+            "longitude": -0.127758,
+            "address": "321 Brick Lane, London E1 6QL, UK",
+            "title": "Curry House London"
+        }
+    },
+    {
+        "title": "Grill & Chill",
+        "imageUrl": "https://images.unsplash.com/photo-1550547660-d9450f859349",
+        "foods": [
+            "Cheeseburger",
+            "Fries",
+            "Chicken Wings",
+            "Milkshake"
+        ],
+        "pickup": true,
+        "delivery": true,
+        "isOpen": true,
+        "rating": 3.9,
+        "ratingCount": "145",
+        "code": "GNC005",
+        "coords": {
+            "id": "loc654",
+            "latitude": 41.878113,
+            "longitude": -87.629799,
+            "address": "654 Michigan Ave, Chicago, IL 60611",
+            "title": "Grill & Chill Downtown"
+        }
+    }
+]

@@ -1,4 +1,5 @@
-const { registrationZodSchema, loginZodSchema, updateUserDataZodSchema } = require("../validation/zodSchema");
+const { SERVER_TIMESTAMP } = require("../config/configs");
+const { registrationZodSchema, loginZodSchema, updateUserDataZodSchema, restaurantPostSchema } = require("../validation/zodSchema");
 
 function registrationInputValidation(req, res, next) {
     const { username, email, password, phone, address, userType } = req.body;
@@ -51,8 +52,24 @@ function updateUserDataInputValidation(req, res, next) {
     }
 }
 
+function restaurantDataInputValidation(req, res, next) {
+    const response = restaurantPostSchema.safeParse(req.body);
+    if (response.success) {
+        req.data = response.data;
+        next()
+    } else {
+        res.status(411).json({
+            status: "INPUT_VALIDATION_FAILED",
+            message: null,
+            error: response.error.errors,
+            timestamp: SERVER_TIMESTAMP,
+        });
+    }
+}
+
 module.exports = {
     registrationInputValidation,
     loginInputValidation,
-    updateUserDataInputValidation
+    updateUserDataInputValidation,
+    restaurantDataInputValidation
 }

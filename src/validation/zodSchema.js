@@ -22,8 +22,28 @@ const updateUserDataZodSchema = zod.object({
     userType: zod.string().refine(value => ["client", "admin", "vendor", "driver"].includes(value), { message: "Invalid User Type" }).optional()
 });
 
+const restaurantPostSchema = zod.object({
+    title: zod.string(),
+    imageUrl: zod.string(),
+    foods: zod.array(zod.string()),
+    pickup: zod.boolean().optional(),
+    delivery: zod.boolean().optional(),
+    isOpen: zod.boolean().optional(),
+    rating: zod.number().optional(),
+    ratingCount: zod.string(),
+    code: zod.string(),
+    coords: zod.object({
+        id: zod.string(),
+        latitude: zod.number(),
+        longitude: zod.number(),
+        address: zod.string(),
+        title: zod.string()
+    })
+})
+
 module.exports = {
     registrationZodSchema,
     loginZodSchema,
-    updateUserDataZodSchema
+    updateUserDataZodSchema,
+    restaurantPostSchema
 }

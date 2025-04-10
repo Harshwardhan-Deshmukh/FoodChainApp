@@ -31,10 +31,11 @@ async function doesUserExistsLogin(req, res, next) {
         const isPasswordValid = verifyPasswordHash(password, passwordHash);
 
         if (isPasswordValid) {
-            const { _id, email } = userData;
+            const { _id, email, userType } = userData;
             const token = jwt.sign({
                 id: _id,
                 email,
+                userType
             }, JWT_SECRET, { expiresIn: "8h" });
             req.token = token;
         }
@@ -50,7 +51,16 @@ async function doesUserExistsLogin(req, res, next) {
 }
 
 function checkTokenValidity(req, res, next) {
-    const [ type, token ] = req.headers["authorization"].split(" "); // extract the token from headers
+    const authHeader = req.headers["authorization"];
+    if (!authHeader) {
+        res.status(401).json({
+            status: "AUTH_HEADER_NOT_FOUND",
+            message: null,
+            error: `Please add Authorization Header`,
+            timestamp: SERVER_TIMESTAMP
+        });
+    }
+    const [ type, token ] = authHeader.split(" "); // extract the token from headers
     if (type === "Bearer") {
         try {
             const userData = jwt.verify(token, JWT_SECRET); // will throw error if token is not valid
@@ -65,7 +75,7 @@ function checkTokenValidity(req, res, next) {
         res.status(401).json({
             status: "INVALID_TOKEN",
             message: null,
-            error: `Invalid token type - ${type}`,
+            error: `Invalid token type`,
             timestamp: SERVER_TIMESTAMP
         });
     }
